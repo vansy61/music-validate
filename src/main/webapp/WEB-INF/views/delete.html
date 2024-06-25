@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>DELETE MUSIC</title>
+</head>
+<body>
+<h3>REMOVE MUSIC</h3>
+<p>
+    <a th:href="@{/musics}">
+        return to home page
+    </a>
+</p>
+
+<div id="form">
+    <form action="#" th:action="@{/musics/delete}" th:object="${music}" method=post novalidate="novalidate">
+
+        <input type="hidden" th:field="*{id}"/>
+
+        <div>
+            <label for="name">Tên bài hát</label>
+            <input type="text" id="name" th:field="*{name}"/>
+        </div>
+        <div>
+            <label for="artist">Ca sĩ</label>
+            <input type="text" id="artist" th:field="*{artist}"/>
+        </div>
+        <div>
+            <label for="musicGenre">Thể loại</label>
+            <input type="text" id="musicGenre" th:field="*{musicGenre}"/>
+        </div>
+        <div>
+            <label for="linkSong">Link</label>
+            <input type="text" id="linkSong" th:field="*{linkSong}"/>
+        </div>
+
+        <input type="submit" value="Remove"/>
+    </form>
+</div>
+</body>
+</html>

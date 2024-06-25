@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:replace="/layout :: head">
+    <title>CreateCustomer</title>
+</head>
+<body>
+<h3>ADD NEW MUSIC</h3>
+<p>
+    <a th:href="@{/musics}">
+        Back to Music list
+    </a>
+</p>
+
+<div id="form">
+    <form th:action="@{/musics/save}" th:object="${musicForm}"
+          method="post" novalidate="novalidate" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div>
+            <label for="name">Tên bài hát</label>
+            <input type="text" id="name" th:field="*{name}">
+            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+        </div>
+
+        <div>
+            <label for="artist">Nghệ sĩ</label>
+            <input type="text" id="artist" th:field="*{artist}">
+            <p style="color: red" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></p>
+        </div>
+
+        <div>
+            <label for="musicGenre">Thể loại nhạc</label>
+            <input type="text" id="musicGenre" th:field="*{musicGenre}">
+            <p style="color: red" th:if="${#fields.hasErrors('musicGenre')}" th:errors="*{musicGenre}"></p>
+        </div>
+
+        <div>
+            <label for="song">Đường dẫn file bài hát</label>
+            <input type="file" id="song" name="song" accept="audio/*" th:field="*{song}">
+            <p style="color: red" th:if="${#fields.hasErrors('song')}" th:errors="*{song}"></p>
+        </div>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

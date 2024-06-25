@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Thông tin bài hát</h3>
+<p>
+    <a th:href="@{/musics}">
+        Quay lại trang chính
+    </a>
+</p>
+<div id="detail">
+    <div class="cusdetail">
+        <label>Tên bài hát:</label>
+        <label th:text="${music.name}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Ca sĩ:</label>
+        <label th:text="${music.artist}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Thể loại:</label>
+        <label th:text="${music.musicGenre}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Link:</label>
+        <label th:text="${music.linkSong}"></label>
+    </div>
+</div>
+</body>
+</html>
